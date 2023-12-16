@@ -1,16 +1,12 @@
 #!/bin/bash
-
 read -p "Enter a question number from 1 to 3: " a
 b=0
-
 while [ $b -lt 100000000000 ]; do                
 cpuUsage=$(top -bn1 | awk '/Cpu/ { print $2}')        
 memUsage=$(free -m | awk '/Mem/{print $3}')
-
 if [ $b -lt 1000000000 ]; then
 echo "CPU Usage: $cpuUsage%"                        
 echo "Memory Usage: $memUsage MB"
-
 Sleep for 1 second
 fi
 if [ $a -eq 1 ]; then
@@ -23,7 +19,6 @@ elif [ $a -eq 3 ]; then
 echo "Что значит $@ в bash?"
 echo "Это число аргументов без учета имени скрипта, который всегда $0"
 fi
-
 ((b++))
 c=$((b**72))
 done
