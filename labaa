@@ -1,28 +1,78 @@
 #!/bin/bash
-read -p "Enter a question number from 1 to 3: " a
+
+b=1
+z=0
+x=0
+while [ $z -eq 0 ]; do
 b=0
-
-while [ $b -lt 100000000000 ]; do                
-cpuUsage=$(top -bn1 | awk '/Cpu/ { print $2}')        
-memUsage=$(free -m | awk '/Mem/{print $3}')
-
-if [ $b -lt 1000000000 ]; then
-echo "CPU Usage: $cpuUsage%"                        
-echo "Memory Usage: $memUsage MB"
-Sleep for 1 second
-fi
-
+read -p "Enter a question number from 1 to 3   (to exit enter 0) :" a
 if [ $a -eq 1 ]; then
-echo "Как активировать debug режим в bash?"
-echo "trap 'echo "# $BASH_COMMAND";read' DEBUG Запускаем скрипт, перед выполнением каждой команды выводится то, что будет исполняться, затем интерпретатор начинает ожидать нажатия клавиши ."
+while [ $b -lt 10 ]
+do
+  cpuUsage=$(top -bn1 | awk '/Cpu/ { print $2}')
+  memUsage=$(free -m | awk '/Mem/{print $3}')
+  b=$(($b+1))
+if [ $x -lt 10 ]; then
+  echo "CPU Usage: $cpuUsage%"
+  echo "Memory Usage: $memUsage MB" 
+
+# Sleep for 1 second
+fi
+    echo " "
+    echo "Как активировать debug режим в bash?"
+    echo " "
+    echo "trap 'echo "# $BASH_COMMAND";read' DEBUG Запускаем скрипт, перед выполнением каждой команды выводится то, что будет исполняться, затем интерпретатор начинает ожидать нажатия клавиши <ENTER>."
+done
+
+
+
+
 elif [ $a -eq 2 ]; then
-echo "Что такое GitFlow?"
-echo "GitFlow — это определенная надстройка над моделью ветвления Git, которая включает в себя использование фича веток и несколько основных веток."
+   while [ $b -lt 10 ]
+do
+  cpuUsage=$(top -bn1 | awk '/Cpu/ { print $2}')
+  memUsage=$(free -m | awk '/Mem/{print $3}')
+  b=$(($b+1))
+if [ $x -lt 10 ]; then
+  echo "CPU Usage: $cpuUsage%"
+  echo "Memory Usage: $memUsage MB" 
+
+# Sleep for 1 second
+fi
+    echo " "
+    echo "Что такое GitFlow?"
+    echo " "
+    echo "GitFlow — это определенная надстройка над моделью ветвления Git, которая включает в себя использование фича веток и несколько основных веток."
+done
+
+
+
+
 elif [ $a -eq 3 ]; then
-echo "Что значит $@ в bash?"
-echo "Это число аргументов без учета имени скрипта, который всегда $0"
+  while [ $b -lt 10 ]
+do
+  cpuUsage=$(top -bn1 | awk '/Cpu/ { print $2}')
+  memUsage=$(free -m | awk '/Mem/{print $3}')
+  b=$(($b+1))
+if [ $x -lt 10 ]; then
+  echo "CPU Usage: $cpuUsage%"
+  echo "Memory Usage: $memUsage MB" 
+
+# Sleep for 1 second
+fi
+    echo " "
+    echo "Что такое системный вызов, какие они бывают?"
+    echo " "
+    echo "Обращение прикладной программы к ядру операционной системы для выполнения какой-либо операции:open , read , write , close , wait , exec , fork , exit и kill "
+done
+
+
+
+
+elif [ $a -eq 0 ]; then
+    z=$(($z+1))
 fi
 
-((b++))
-c=$((b**72))
+  ((b++))
+  c=$((b**72))
 done
